@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import App from "./App";
 import { TopicDetails } from "./components/TopicDetails";
 
-test("renders learn react link", () => {
+test("renders spinner on load", () => {
   render(<App />);
   const linkElement = screen.getByTestId("spinner");
   expect(linkElement).toBeInTheDocument();

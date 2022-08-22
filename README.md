@@ -16,6 +16,7 @@ To interact with the Github GraphQL API you'll need to have
 
 *
 a [Github API key](https://docs.github.com/en/free-pro-team@latest/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql)
+
 * You'll want to make use of the key in the .env file within your application
 
 You may use whatever React framework or library you find useful. URL routing is optional.
@@ -38,7 +39,8 @@ Best of luck
 
 ### How to run app & test
 
-* Leave instruction on how to run and test your app here
+    npm install
+    npm run dev
 
 ### Future Improvements
 
@@ -47,5 +49,8 @@ Feel free to elaborate on how you would improve any of the following topics
 * Code Structuring:
 
 * Refactoring:
+    * Return the data in a cleaner format so you're not parsing response.data.data.topic
+    * Remove express layer if not worried about API keys
 
 * Additional Features:
+    * Breadcrumbs/Search History

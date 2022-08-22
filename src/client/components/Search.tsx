@@ -14,7 +14,7 @@ const useStyles = makeStyles<Theme>((theme: Theme) =>
       backgroundColor: "#FFC83D",
       fontWeight: "bold",
       "&:hover": {
-        backgroundColor: "#ffb61d",
+        backgroundColor: "#d79f3b",
       },
     },
     buttonWrapper: {
@@ -37,7 +37,6 @@ const useStyles = makeStyles<Theme>((theme: Theme) =>
       padding: "0px 5px",
     },
     textField: {
-      color: "#FFF",
       width: "100%",
       backgroundColor: "#FFF",
     },

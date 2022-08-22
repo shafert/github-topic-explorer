@@ -5,6 +5,9 @@ import { ListItem } from "./ListItem";
 
 const useStyles = makeStyles<Theme>((theme: Theme) =>
   createStyles({
+    stargazer: {
+      color: "#FFC83D",
+    },
     subtitle: {
       marginBottom: "0px",
     },

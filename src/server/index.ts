@@ -6,7 +6,9 @@ import axios from "axios";
 dotenv.config();
 
 const app = express();
+
 app.use(express.static("build"));
+
 app.use(bodyParser.json());
 app.use(
   bodyParser.urlencoded({

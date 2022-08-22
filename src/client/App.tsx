@@ -11,6 +11,7 @@ import { getTasks } from "./functions/functions";
 
 // styles
 import "./App.css";
+import "react-toastify/dist/ReactToastify.css";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 
 const useStyles = makeStyles<Theme>(() =>
@@ -26,9 +27,6 @@ const useStyles = makeStyles<Theme>(() =>
     noRelatedTopics: {
       fontSize: "20px",
     },
-    stargazer: {
-      color: "#FFC83D",
-    },
   })
 );
 
@@ -40,21 +38,21 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [term, setTerm] = useState("react");
   const [topic, setTopic] = useState({
-    name: "",
+    name: "react",
     stargazerCount: 0,
     relatedTopics: [],
   });
 
-  useEffect(() => {
-    async function fetchData() {
-      const result = await getTasks(term);
-      console.log(result);
-      setTopic(result.data.data.topic);
-    }
+  const fetchData = async (term: string) => {
+    const result = await getTasks(term);
+    console.log(result);
+    setTopic(result.data.data.topic);
+  };
 
+  useEffect(() => {
     setLoading(true);
-    fetchData()
-      .catch((error) => {
+    fetchData(term)
+      .catch(() => {
         toast.error("Error Retrieving Data");
       })
       .then(() => {
@@ -73,14 +71,9 @@ function App() {
   };
 
   const doSearch = () => {
-    async function fetchData() {
-      const result = await getTasks(searchTerm);
-      setTopic(result.data.data.topic);
-    }
-
     if (searchTerm) {
       setSearching(true);
-      fetchData()
+      fetchData(searchTerm)
         .catch(() => {
           toast.error("Error Retrieving Data");
         })
@@ -92,6 +85,17 @@ function App() {
 
   return (
     <div className="App">
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <header className="App-header">
         {loading ? (
           <div className={classes.loadingWrapper}>
@@ -121,18 +125,6 @@ function App() {
           </div>
         )}
       </header>
-
-      <ToastContainer
-        position="bottom-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
     </div>
   );
 }
