@@ -36,21 +36,50 @@ Best of luck
 ## Dev Notes
 
 * Leave any technical notes on any libraries or tools you chose to use, the more detail the better.
+    * Express
+        * I added an Express layer to allow me not to expose the API key on the client side.
+        * Nodemon and Concurrently are used to help run the Express server
+    * Axios
+        * Common HTTP request tool that is clean to work with and provides some improvements over fetch such as:
+            * Greater browser support, manual timeouts, request cancellation/cleanup, built-in JSON transformation,
+              interceptors
+    * Typescript
+        * Types help catch errors early and are very helpful for large codebases/large teams/consistent code/scaling
+    * Prettier
+        * Helps keep a consistent code style
+    * Toastify
+        * Nice and easy Toast/notify solution
+    * Material UI core
+        * Useful starting place for UI components
+    * Material UI core/styles
+        * My preferred way to apply styles. Keeps styling decisions in the same file as they are used without going
+          inline
 
 ### How to run app & test
 
+From the root directory, run
+
     npm install
     npm run dev
+
+localhost:3000 should open in your environment. You can click on Related Topics to explore, or submit your own Search.
+
+To run the test suite, run:
+
+    npm test
 
 ### Future Improvements
 
 Feel free to elaborate on how you would improve any of the following topics
 
 * Code Structuring:
+    * May want to give topic as an object to TopicDetails
 
 * Refactoring:
     * Return the data in a cleaner format so you're not parsing response.data.data.topic
-    * Remove express layer if not worried about API keys
+    * Remove express layer if not worried about API keys being accessible
+    * Place graphql query in separate file
+    * can cancel axios requests if many are performed in a row
 
 * Additional Features:
     * Breadcrumbs/Search History
