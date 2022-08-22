@@ -1,28 +1,56 @@
 import express from "express";
 import bodyParser from "body-parser";
-import path from "path";
+import dotenv from "dotenv";
+import axios from "axios";
 
-// const buildDir = path.join(process.cwd() + "/build");
+dotenv.config();
+
 const app = express();
+app.use(express.static("build"));
 app.use(bodyParser.json());
 app.use(
-    bodyParser.urlencoded({
-        extended: true,
-    })
+  bodyParser.urlencoded({
+    extended: true,
+  })
 );
-// app.use(express.static(buildDir));
-//
-// app.get("/*", function (req, res) {
-//     res.sendFile(path.join(buildDir, "index.html"));
-// });
 
 const port = 3001;
-console.log("checking port", port);
+
 app.listen(port, () => {
-    console.log(`Server now listening on port: ${port}`);
+  console.log(`Server now listening on port: ${port}`);
 });
 
+app.get("/tasks/:term", function (req, res) {
+  const axiosInstance = axios.create({
+    baseURL: process.env.GITHUB_ENDPOINT,
+    headers: {
+      Authorization: `Bearer ${process.env.GITHUB_API_TOKEN}`,
+    },
+  });
 
-app.get("/tasks", function (req, res) {
-    return res.send("Tasks");
+  axiosInstance
+    .post("/graphql", {
+      query: `
+               query TOPIC_QUERY($term: String!){
+                 topic(name: $term){
+                   name,
+                   stargazerCount,
+                   relatedTopics {
+                     name,
+                     stargazerCount
+                   }
+                 }
+               }
+             `,
+      variables: {
+        term: req.params.term,
+      },
+    })
+    .then((response) => {
+      // todo check status code
+      res.json(response.data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 });
