@@ -15,6 +15,7 @@ with the UI.
 To interact with the Github GraphQL API you'll need to have
 
 *
+
 a [Github API key](https://docs.github.com/en/free-pro-team@latest/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql)
 
 * You'll want to make use of the key in the .env file within your application
@@ -36,6 +37,8 @@ Best of luck
 ## Dev Notes
 
 * Leave any technical notes on any libraries or tools you chose to use, the more detail the better.
+    * create-react-app
+        * Useful boilerplate for getting a React application up and running.
     * Express
         * I added an Express layer to allow me not to expose the API key on the client side.
         * Nodemon and Concurrently are used to help run the Express server
