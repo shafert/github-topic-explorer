@@ -33,7 +33,11 @@ type ListItemProps = {
 export const ListItem = ({ name, stargazerCount, setTerm }: ListItemProps) => {
   const classes = useStyles();
   return (
-    <div onClick={() => setTerm(name)} className={classes.container}>
+    <div
+      onClick={() => setTerm(name)}
+      className={classes.container}
+      data-testid="list-item"
+    >
       <div className={classes.topic}>{name}</div>
       <div className={classes.stargazer}>
         ⭐{stargazerCount.toLocaleString()}

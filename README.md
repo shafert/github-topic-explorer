@@ -57,10 +57,12 @@ Best of luck
     * Material UI core/styles
         * My preferred way to apply styles. Keeps styling decisions in the same file as they are used without going
           inline
+    * Jest
+        * JavaScript testing framework
 
 ### How to run app & test
 
-From the root directory, run
+From the root directory of the application, run
 
     npm install
     npm run dev
@@ -77,6 +79,9 @@ Feel free to elaborate on how you would improve any of the following topics
 
 * Code Structuring:
     * May want to give topic as an object to TopicDetails
+    * Instead of passing down functions to child components, can have children update a global state with their own
+      function, which would be referenced by the parents
+    *
 
 * Refactoring:
     * Return the data in a cleaner format so you're not parsing response.data.data.topic

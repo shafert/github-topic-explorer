@@ -53,7 +53,7 @@ type SearchProps = {
   doSearch: MouseEventHandler;
 };
 
-export const Search = ({
+const Search = ({
   searchTerm,
   onChange,
   checkEnter,
@@ -77,7 +77,11 @@ export const Search = ({
           />
         </Grid>
         <Grid item xs={12} sm={2} className={classes.buttonWrapper}>
-          <Button className={classes.button} onClick={doSearch}>
+          <Button
+            className={classes.button}
+            onClick={doSearch}
+            data-testid="search-button"
+          >
             Search
           </Button>
         </Grid>
@@ -85,3 +89,5 @@ export const Search = ({
     </div>
   );
 };
+
+export default Search;

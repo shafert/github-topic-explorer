@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 
 // components
-import { Search } from "./components/Search";
-import { TopicDetails } from "./components/TopicDetails";
+import Search from "./components/Search";
+import TopicDetails from "./components/TopicDetails";
+
 import { CircularProgress } from "@material-ui/core";
 import { toast, ToastContainer } from "react-toastify";
 

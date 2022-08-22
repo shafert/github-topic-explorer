@@ -29,7 +29,7 @@ type TopicDetailsProps = {
   setTerm: CallableFunction;
 };
 
-export const TopicDetails = ({
+const TopicDetails = ({
   name,
   stargazerCount,
   relatedTopics,
@@ -60,3 +60,5 @@ export const TopicDetails = ({
     </div>
   );
 };
+
+export default TopicDetails;
