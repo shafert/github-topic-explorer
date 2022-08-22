@@ -45,7 +45,6 @@ function App() {
 
   const fetchData = async (term: string) => {
     const result = await getTasks(term);
-    console.log(result);
     setTopic(result.data.data.topic);
   };
 
