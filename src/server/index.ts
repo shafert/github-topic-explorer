@@ -49,10 +49,11 @@ app.get("/tasks/:term", function (req, res) {
       },
     })
     .then((response) => {
-      // todo check status code
-      res.json(response.data);
+      res.send(response.data);
     })
     .catch((error) => {
-      console.log(error);
+      res.status(error.response.status).send({
+        message: error.response.statusText,
+      });
     });
 });

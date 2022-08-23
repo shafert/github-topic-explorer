@@ -38,27 +38,30 @@ Best of luck
 
 * Leave any technical notes on any libraries or tools you chose to use, the more detail the better.
     * create-react-app
-        * Useful boilerplate for getting a React application up and running.
+        * Useful boilerplate for getting a React application up and running with minimal configuration.
     * Express
-        * I added an Express layer to allow me not to expose the API key on the client side.
+        * I added an Express layer to allow me not to expose the API key on the client side by keeping .env references
+          inside the server component
         * Nodemon and Concurrently are used to help run the Express server
     * Axios
         * Common HTTP request tool that is clean to work with and provides some improvements over fetch such as:
             * Greater browser support, manual timeouts, request cancellation/cleanup, built-in JSON transformation,
               interceptors
     * Typescript
-        * Types help catch errors early and are very helpful for large codebases/large teams/consistent code/scaling
+        * Types help catch errors early and are very helpful for large code bases/large teams/consistent code/scaling
     * Prettier
-        * Helps keep a consistent code style
+        * Helps enforce a consistent code style.
     * Toastify
-        * Nice and easy Toast/notify solution
+        * Nice and easy Toast/notify solution.
     * Material UI core
-        * Useful starting place for UI components
+        * Useful starting place for UI components.
     * Material UI core/styles
         * My preferred way to apply styles. Keeps styling decisions in the same file as they are used without going
-          inline
-    * Jest
-        * JavaScript testing framework
+          inline.
+    * Jest+testing-library
+        * JavaScript testing framework/tools to allow for testing of frontend code, a consensus best practice and
+          obviously particularly useful for large code bases with lots of benefit from regression testing, as well as in
+          industries where failures can be particularly devastating.
 
 ### How to run app & test
 
@@ -78,16 +81,23 @@ To run the test suite, run:
 Feel free to elaborate on how you would improve any of the following topics
 
 * Code Structuring:
-    * May want to give topic as an object to TopicDetails
+    * May want to give topic as an object to TopicDetails, depending on precedent
     * Instead of passing down functions to child components, can have children update a global state with their own
       function, which would be referenced by the parents
-    *
+    * May want to make ListItem a component in a TopicDetails folder
 
 * Refactoring:
-    * Return the data in a cleaner format so you're not parsing response.data.data.topic
-    * Remove express layer if not worried about API keys being accessible
-    * Place graphql query in separate file
-    * can cancel axios requests if many are performed in a row
+    * Return the data in a cleaner format so we're not parsing response.data.data.topic
+    * Remove Express layer if not worried about API keys being exposed
+    * Place GraphQL query(s) in separate file(s)
+    * Cancel axios requests if performed in a row before prior completes
+    * Different patterns may make the code more testable
+        * Reference axios directly in App.tsx
+        * Passing down functions into children
 
 * Additional Features:
     * Breadcrumbs/Search History
+    * Expand testing
+        * Integration tests
+        * Express tests
+    * Router could be implemented to allow term to be set/viewed from the URL
