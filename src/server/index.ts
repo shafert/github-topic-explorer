@@ -24,7 +24,7 @@ app.listen(port, () => {
 
 app.get("/tasks/:term", function (req, res) {
   const axiosInstance = axios.create({
-    baseURL: process.env.GITHUB_ENDPOINT,
+    baseURL: "https://api.github.com",
     headers: {
       Authorization: `Bearer ${process.env.GITHUB_API_TOKEN}`,
     },
