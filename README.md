@@ -99,6 +99,7 @@ To run the test suite, run:
     * Different patterns may make the code more testable
         * Reference axios directly in App.tsx
         * Passing down functions into children
+    * API endpoint can be saved in .env file as well
 
 * Additional Features:
     * Breadcrumbs/Search History
