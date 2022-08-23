@@ -65,12 +65,17 @@ Best of luck
 
 ### How to run app & test
 
+In the root directory of the application, create a .env file containing:
+
+    GITHUB_API_TOKEN=[your token]
+
 From the root directory of the application, run
 
     npm install
     npm run dev
 
-localhost:3000 should open in your environment. You can click on Related Topics to explore, or submit your own Search.
+localhost:3000 should open in your environment. You can click on items in the Related Topics section to explore, or you
+can submit your own Search for a Topic of your choosing.
 
 To run the test suite, run:
 
@@ -78,7 +83,7 @@ To run the test suite, run:
 
 ### Future Improvements
 
-Feel free to elaborate on how you would improve any of the following topics
+*Feel free to elaborate on how you would improve any of the followin*g topics
 
 * Code Structuring:
     * May want to give topic as an object to TopicDetails, depending on precedent
